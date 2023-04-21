@@ -455,7 +455,7 @@ section.home-section {
 
 .todo-list li {
     width: 100%;
-    height: 3rem;
+    height: 2rem;
     background-color: var(--Very-Dark-Desaturated-Blue);
     border-bottom: 0.1rem solid var(--Very-Dark-Grayish-Blue);
     outline: none;
@@ -466,6 +466,7 @@ section.home-section {
     justify-content: space-between;
     position: relative;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .todo-list li:nth-child(1) {
@@ -516,6 +517,11 @@ section.home-section {
     font-style: italic;
 }
 
+.delete-task {
+    display: grid;
+    place-items: center;
+}
+
 @media (min-width: 768px)
 {
     .home-section .intro {
@@ -538,6 +544,12 @@ section.home-section {
 
     .todo-list {
         top: 14rem;
+    }
+
+    .todo-list li {
+    height: 3rem;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    font-size: 1.3rem;
     }
 }
 

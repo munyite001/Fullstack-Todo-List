@@ -30,10 +30,22 @@ inputs.forEach((input) => {
         label.classList.remove('active');
     }
     })
-    if (input .value != '')
-    {
-        input.parentElement.querySelector('span').classList.remove('active')     
-    }
+})
+
+
+//  move the input labels topside when the page reloads
+window.addEventListener('load', () => {
+    inputs.forEach((input) => {
+        const label = input.parentElement.querySelector('span')
+        if (input.value != '')
+        {
+            label.classList.add('active');
+        }
+        else
+        {
+            label.classList.remove('active');
+        }
+    })
 })
 
 //  Hide the error messages after a few minutes
