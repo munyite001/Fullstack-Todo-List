@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="logo-text">TODO</span>
+        </div>
+        <!-- Navigation -->
+        <nav>
+            {%  if session["user_id"] %}
+            <div class="theme-switcher">
+                <div class="btn-container">
+                    <img src="../static/images/icon-sun.svg" alt="Light Theme Icon" class="light-icon">
+                </div>
+                <div class="btn-container">
+                    <img src="../static/images/icon-moon.svg" alt="Dark Theme Icon" class="dark-icon">
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+            {% else %}
+            <ul class="mobile-nav-list">
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                <li>
+                    <a href="/register">Register</a>
+                </li>
+            </ul>
+            {% endif %}
+
+        </nav>
+        <div class="menu">
+            <img src="../static/images/menu.png" alt="Hamburger Menu">
+        </div>
+    </header>
+    <div class="mobile-menu">
+        <div class="close">
+            <div class="btn-container">
+                <img src="../static/images/icon-sun.svg" alt="Light Theme Icon" class="light-icon">
+            </div>
+            <div class="btn-container">
+                <img src="../static/images/icon-moon.svg" alt="Dark Theme Icon" class="dark-icon">
+            </div>
+            <div class="close-btn">
+                <img src="../static/images/icon-cross.svg" alt="Close Mobile Menu Icon">
+            </div>
+        </div>
+        {% if session["user_id"] %}
+        <ul class="mobile-nav-list">
+            <li>
+                <a href="/logout">Logout</a>
+            </li>
+        </ul>
+        {% else %}
+        <ul class="mobile-nav-list">
+            <li>
+                <a href="/login">Login</a>
+            </li>
+            <li>
+                <a href="/register">Register</a>
+            </li>
+        </ul>
+        {% endif %}
+    </div>
+    <main>
+        {%  block main  %}
+        {%  endblock    %}
+    </main>
+    <footer></footer>
+    <script src='../static/JS/app.js'></script>
+</body>
+</html>

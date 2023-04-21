@@ -1,0 +1,24 @@
+{%  extends "layout.html"  %}
+
+{%  block title %}
+
+home
+
+{%  endblock    %}
+
+{%  block main  %}
+<section class="home-section">
+    <div class="intro">
+        <h2 class="intro-username">{{ username }}</h2>
+        <form action="#" method="POST">
+            <span></span>
+            <input type="text" name="task" autofocus placeholder="Create a new todo...">
+        </form>
+        <ul class="todo-list">
+        
+        </ul>
+    </div>
+    
+</section>
+
+{%  endblock    %}
