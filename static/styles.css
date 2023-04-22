@@ -554,3 +554,39 @@ section.home-section {
 }
 
 
+
+/*##################
+    Filter
+###################*/
+.item:last-child {
+    padding: 1rem;
+    font-size: 16px;
+}
+
+.item:last-child a {
+    color: var(--Dark-Grayish-Blue);
+}
+
+.item:last-child a:hover {
+    color: var(--Light-Grayish-Blue-hover);
+}
+
+
+
+.item:last-child .num-items {
+    margin: 0 2rem 0 0;
+    color: var(--Dark-Grayish-Blue);
+}
+
+.item:last-child .controls {
+    margin: 0 1rem;
+}
+
+.item:last-child .controls a {
+    margin: 0.2rem;
+}
+
+.item:last-child .controls a.active {
+    color: var(--bright-blue);
+    font-size: 16px;
+}

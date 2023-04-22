@@ -58,26 +58,18 @@ errors.forEach((error) => {
     }
 })
 
+//  Get all tasks
 fetch('/tasks')
 .then(response => response.json())
 .then(data => {
     taskList = data;
     renderTasks()
-    completeBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            btn.classList.toggle('task-complete');
-            btn.parentElement.classList.toggle('complete');
-            let id = parseInt(btn.parentElement.dataset.id);
-            let options = {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: {'id': id}
-            }
-            fetch(`/update-task/${id}`, options)
-        })
-    })
+    //  Handle users marking a task as complete
+    handleCompleteTasks()
+
+    //  Filter Options
+    filterOptions()
+
 })
 
 
@@ -85,8 +77,12 @@ fetch('/tasks')
 
 function renderTasks() {
     let todos = ""
+    var activeTasks = 0
     for (let task of taskList) {
-        console.log("Complete Status: ", task.complete)
+        if (task.complete == 0)
+        {
+            activeTasks += 1
+        }
         if (task.complete == 1)
         {
             todos += `
@@ -116,6 +112,90 @@ function renderTasks() {
         `
         }
     }
+    if (taskList.length > 0)
+    {
+        todos += `
+    <li class="item">
+        <div class="num-items">${activeTasks} item(s) left</div>
+        <div class="controls">
+            <a href="#">All</a>
+            <a href="#">Active</a>
+            <a href="#">Completed</a>
+        </div>
+        <a href="/delete_task/completed">Clear Completed</a>
+    </li>
+    `
+    }
     todoList.innerHTML = todos;
     completeBtns = todoList.querySelectorAll('.mark-complete');
+}
+
+
+function handleCompleteTasks()
+{
+    completeBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('task-complete');
+            btn.parentElement.classList.toggle('complete');
+            let id = parseInt(btn.parentElement.dataset.id);
+            let options = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: {'id': id}
+            }
+            fetch(`/update-task/${id}`, options)
+        })
+    })
+}
+
+function filterOptions()
+{
+    const controlBtns = todoList.querySelectorAll('.controls a');
+    controlBtns.forEach((controlBtn) => {
+        controlBtn.addEventListener('click', () => {
+            let status = controlBtn.innerHTML.toLowerCase()
+            if (status == "all")
+            {
+                fetch('/tasks')
+                .then(res => res.json())
+                .then(data => {
+                    taskList = data;
+                    renderTasks()
+                    //  Handle users marking a task as complete
+                    handleCompleteTasks()
+                    filterOptions()
+                })
+                controlBtn.classList.add('active');
+            }
+            else if (status == "active")
+            {
+                fetch('/tasks/active')
+                .then(res => res.json())
+                .then(data => {
+                    taskList = data;
+                    renderTasks()
+                    //  Handle users marking a task as complete
+                    handleCompleteTasks()
+                    filterOptions()
+                })
+                controlBtn.classList.add('active')
+            }
+            else if (status == "completed")
+            {
+                fetch('/tasks/completed')
+                .then(res => res.json())
+                .then(data => {
+                    taskList = data;
+                    renderTasks()
+                    //  Handle users marking a task as complete
+                    handleCompleteTasks()
+                    filterOptions()
+                })
+                controlBtn.classList.add('active')
+            }
+            
+        })
+    })
 }

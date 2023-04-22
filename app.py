@@ -189,7 +189,30 @@ def get_tasks():
     return jsonify(tasks)
 
 
-#   Route to delete tasks
+#   Route to display all active tasks
+@app.route("/tasks/active")
+@login_required
+def get_acive_tasks():
+    #   Connect to the database
+    conn = get_db()
+    db = conn.cursor()
+    #   Get all tasks of the user
+    tasks = db.execute("SELECT * FROM tasks WHERE id = ? AND complete = 0", (session["user_id"], )).fetchall()
+    return jsonify(tasks)
+
+#   Route to display all tasks
+@app.route("/tasks/completed")
+@login_required
+def get_completed_tasks():
+    #   Connect to the database
+    conn = get_db()
+    db = conn.cursor()
+    #   Get all tasks of the user
+    tasks = db.execute("SELECT * FROM tasks WHERE id = ? AND complete = 1", (session["user_id"], )).fetchall()
+    return jsonify(tasks)
+
+
+#   Route to delete a task given an id
 @app.route('/delete_task/<int:task_id>')
 @login_required
 def delete_task(task_id):
@@ -200,6 +223,19 @@ def delete_task(task_id):
     db.execute("DELETE FROM tasks WHERE task_id = ? AND id = ?", (task_id, session["user_id"], ))
     conn.commit()
     flash("Task deleted successfully", "success")
+    return redirect('/')
+
+#   Route to delete all completed
+@app.route('/delete_task/completed')
+@login_required
+def delete_completed_task():
+    # Connect to the database
+    conn = get_db()
+    db = conn.cursor()
+    # Delete the task from the database
+    db.execute("DELETE FROM tasks WHERE complete = 1 AND id = ?", (session["user_id"], ))
+    conn.commit()
+    flash("Tasks deleted successfully", "success")
     return redirect('/')
 
 #   Route to mark a task as complete
