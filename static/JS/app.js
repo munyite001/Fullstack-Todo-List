@@ -5,6 +5,7 @@ const inputs = document.querySelectorAll('.inputBx input');
 const errors = document.querySelectorAll('.error');
 const todoList = document.querySelector('.todo-list');
 let taskList = []
+let active = []
 let completeBtns;
 
 // Open The mobile Menu
@@ -62,6 +63,7 @@ errors.forEach((error) => {
 fetch('/tasks')
 .then(response => response.json())
 .then(data => {
+    active = data
     taskList = data;
     renderTasks()
     //  Handle users marking a task as complete
@@ -112,7 +114,7 @@ function renderTasks() {
         `
         }
     }
-    if (taskList.length > 0)
+    if (active.length > 0)
     {
         todos += `
     <li class="item">
@@ -180,20 +182,21 @@ function filterOptions()
                     handleCompleteTasks()
                     filterOptions()
                 })
-                controlBtn.classList.add('active')
             }
             else if (status == "completed")
             {
                 fetch('/tasks/completed')
                 .then(res => res.json())
                 .then(data => {
-                    taskList = data;
+                    taskList = data
                     renderTasks()
                     //  Handle users marking a task as complete
                     handleCompleteTasks()
                     filterOptions()
+                    setTimeout(() => {
+                        controlBtn.classList.add('active')
+                    },2000)
                 })
-                controlBtn.classList.add('active')
             }
             
         })

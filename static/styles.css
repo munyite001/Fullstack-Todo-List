@@ -549,7 +549,7 @@ section.home-section {
     .todo-list li {
     height: 3rem;
     padding: 0.5rem 1rem 0.5rem 2.5rem;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     }
 }
 
@@ -560,7 +560,7 @@ section.home-section {
 ###################*/
 .item:last-child {
     padding: 1rem;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .item:last-child a {
@@ -588,5 +588,10 @@ section.home-section {
 
 .item:last-child .controls a.active {
     color: var(--bright-blue);
-    font-size: 16px;
+    font-size: 16px ;
 }
+
+
+/*##################
+    Light Theme
+###################*/
