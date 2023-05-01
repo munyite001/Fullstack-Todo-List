@@ -39,7 +39,7 @@ body {
     height: 100vh;
     font-size: var(--fs-body);
     font-family: var(--ff-josefin-sans);
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 header {
