@@ -74,9 +74,6 @@ fetch('/tasks')
 
 })
 
-
-
-
 function renderTasks() {
     let todos = ""
     var activeTasks = 0

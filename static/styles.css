@@ -65,7 +65,7 @@ header {
 }
 
 nav {
-    display: none;    
+    display: none;   
 }
 
 .menu {
@@ -375,7 +375,7 @@ nav a:hover, .mobile-nav-list li a:hover {
 ###################*/
 section.home-section {
     position: absolute;
-    top: 10vh;
+    top: 4rem;
     right: 0;
     bottom: 0;
     left: 0;
@@ -385,8 +385,9 @@ section.home-section {
 .home-section .intro {
     position: relative;
     width: 100vw;
-    height: 30vh;
+    height: 25vh;
     background: url(../static/images/bg-mobile-dark.jpg);
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
@@ -435,6 +436,7 @@ section.home-section {
     padding: 0.5rem 0 0.5rem 2.5rem;
     color: var(--Dark-Grayish-Blue);
     position: relative;
+    top: 0.2rem;
 
 }
 
@@ -448,7 +450,7 @@ section.home-section {
     max-width: 500px;
     background-color: var(--Very-Dark-Desaturated-Blue);
     position: absolute;
-    top: 8rem;
+    top: 11rem;
     border-radius: 5px;
     list-style-type: none;
 }
@@ -543,7 +545,7 @@ section.home-section {
     }
 
     .todo-list {
-        top: 14rem;
+        top: 17rem;
     }
 
     .todo-list li {
@@ -561,6 +563,7 @@ section.home-section {
 .item:last-child {
     padding: 1rem;
     font-size: 14px;
+    position: relative;
 }
 
 .item:last-child a {
@@ -579,7 +582,17 @@ section.home-section {
 }
 
 .item:last-child .controls {
-    margin: 0 1rem;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
 }
 
 .item:last-child .controls a {
@@ -589,6 +602,15 @@ section.home-section {
 .item:last-child .controls a.active {
     color: var(--bright-blue);
     font-size: 16px ;
+}
+
+@media (min-width: 768px)
+{
+    .item:last-child .controls {
+        position: relative;
+        width: auto;
+        top: 0;
+    }
 }
 
 
