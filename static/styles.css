@@ -375,7 +375,7 @@ nav a:hover, .mobile-nav-list li a:hover {
 ###################*/
 section.home-section {
     position: absolute;
-    top: 4rem;
+    top: 10vh;
     right: 0;
     bottom: 0;
     left: 0;
@@ -400,7 +400,7 @@ section.home-section {
     font-size: 700;
     font-size: 1.5rem;
     position: absolute;
-    top: 2rem;
+    top: 1rem;
     left: 1rem;
 }
 
@@ -612,8 +612,3 @@ section.home-section {
         top: 0;
     }
 }
-
-
-/*##################
-    Light Theme
-###################*/

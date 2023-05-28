@@ -20,14 +20,6 @@
         <!-- Navigation -->
         <nav>
             {%  if session["user_id"] %}
-            <div class="theme-switcher">
-                <div class="btn-container">
-                    <img src="../static/images/icon-sun.svg" alt="Light Theme Icon" class="light-icon">
-                </div>
-                <div class="btn-container">
-                    <img src="../static/images/icon-moon.svg" alt="Dark Theme Icon" class="dark-icon">
-                </div>
-            </div>
             <a href="/logout">Logout</a>
             {% else %}
             <ul class="mobile-nav-list">
@@ -47,12 +39,6 @@
     </header>
     <div class="mobile-menu">
         <div class="close">
-            <div class="btn-container">
-                <img src="../static/images/icon-sun.svg" alt="Light Theme Icon" class="light-icon">
-            </div>
-            <div class="btn-container">
-                <img src="../static/images/icon-moon.svg" alt="Dark Theme Icon" class="dark-icon">
-            </div>
             <div class="close-btn">
                 <img src="../static/images/icon-cross.svg" alt="Close Mobile Menu Icon">
             </div>
