@@ -34,7 +34,7 @@
     text-decoration: none;
 }
 
-body {
+body,main {
     width: 100vw;
     height: 100vh;
     font-size: var(--fs-body);
