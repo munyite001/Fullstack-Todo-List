@@ -58,9 +58,7 @@ header {
 }
 
 .logo .logo-text {
-    background-image: var(--bg-gradient);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: hsl(280, 70%, 43%);
     font-weight: 700;
 }
 
