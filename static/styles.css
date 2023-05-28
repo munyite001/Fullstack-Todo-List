@@ -36,6 +36,7 @@
 
 html {
     overflow: hidden;
+    border: 5px solid green;
 }
 
 body,main {
