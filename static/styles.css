@@ -44,7 +44,6 @@ body,main {
     font-size: var(--fs-body);
     font-family: var(--ff-josefin-sans);
     overflow: hidden;
-    border: 1px solid red;
 }
 
 header {
@@ -383,6 +382,7 @@ section.home-section {
     bottom: 0;
     left: 0;
     background-color: var(--Very-Dark-Blue);
+    border: 5px solid red;
 }
 
 .home-section .intro {
