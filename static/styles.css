@@ -34,12 +34,17 @@
     text-decoration: none;
 }
 
+html {
+    overflow: hidden;
+}
+
 body,main {
     width: 100vw;
     min-height: 100vh;
     font-size: var(--fs-body);
     font-family: var(--ff-josefin-sans);
     overflow: hidden;
+    border: 1px solid red;
 }
 
 header {
