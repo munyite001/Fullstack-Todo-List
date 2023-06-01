@@ -87,11 +87,13 @@ nav {
     padding: 1rem;
     transition: all 0.3s linear;
     transform: translateX(100%);
+    display: none;
 }
 
 .show-btn {
     transform: translateX(0);
     z-index: 1000;
+    display: block;
 }
 
 .close {
@@ -449,7 +451,7 @@ section.home-section {
     max-width: 500px;
     background-color: var(--Very-Dark-Desaturated-Blue);
     position: absolute;
-    top: 11rem;
+    top: 12.5rem;
     border-radius: 5px;
     list-style-type: none;
 }
@@ -544,7 +546,7 @@ section.home-section {
     }
 
     .todo-list {
-        top: 17rem;
+        top: 14rem;
     }
 
     .todo-list li {
